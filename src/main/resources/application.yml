@@ -1,0 +1,32 @@
+#spring:
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+
+
+spring.security.loginType: json
+server:
+  servlet:
+    session:
+      timeout: 1m #最低1分钟
+      cookie:
+        http-only: true
+        secure: false # true 为只能https访问
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/rbac_demo?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  config: classpath:logback-spring.xml
+
+jwt:
+  secret: wdqwdqdqwef
+  expiration: 3600000
+  header: JWTHeaderName
